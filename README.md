@@ -4,7 +4,7 @@ This repository provides a real-world example of using Open Tofu to deploy a bas
 
 ## Prerequisites
 
-- [Open Tofu](https://www.terraform.io/downloads.html) installed
+- [Open Tofu](https://opentofu.org/docs) installed
 - AWS CLI configured with your credentials
 - A VPC ID where the security group will be created
 - An AMI ID for the EC2 instance
