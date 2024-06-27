@@ -9,6 +9,7 @@ This repository provides a real-world example of using Open Tofu to deploy a bas
 - A VPC ID where the security group will be created
 - An AMI ID for the EC2 instance
 - ncr service binary uploaded to an S3 bucket
+- ZenCode smart contracts to be stored in an S3 bucket (ask andrea)
 
 ## Getting Started
 

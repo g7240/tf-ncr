@@ -6,7 +6,9 @@
 
 3. **As a DevOps engineer, I want to set up an EC2 instance that runs an NCR service, which exposes a REST API accessible over the internet.**
 
-4. **As a security officer, I want to create a security group that allows SSH access and public access to the NCR service port, ensuring the instance is protected from unwanted traffic.**
+4. **As a user, I want to access the NCR service's REST API and see the NCR/OpenAPI documentation online so that I can understand how to interact with the service.**
 
-5. **As a project manager, I want to document the infrastructure setup process so that new team members can quickly get up to speed.**
+5. **As a security officer, I want to create a security group that allows SSH access and public access to the NCR service port, ensuring the instance is protected from unwanted traffic.**
+
+6. **As a project manager, I want to document the infrastructure setup process so that new team members can quickly get up to speed.**
 
