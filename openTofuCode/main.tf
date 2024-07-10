@@ -1,9 +1,9 @@
 provider "aws" {
-  region = "us-west-2" # Change to your preferred region
+  region = "eu-west-3"
 }
 
 resource "aws_s3_bucket" "private_bucket" {
-  bucket = "my-private-bucket-12345" # Change to your preferred bucket name
+  bucket = "my-private-bucket-fjjdxq3o90p"
   acl    = "private"
 
   tags = {
