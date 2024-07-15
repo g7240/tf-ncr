@@ -8,14 +8,28 @@ resource "aws_s3_bucket" "example_bucket" {
   acl    = "private"
 }
 
-# Create a security group to allow HTTP access
+# Create a security group to allow HTTP access on port 8080 and outbound traffic on ports 80 and 443
 resource "aws_security_group" "ncr_sg" {
   name        = "ncr_sg"
-  description = "Allow HTTP traffic"
-  
+  description = "Allow HTTP traffic on port 8080 and outgoing traffic on port 80 and 443"
+
   ingress {
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
     from_port   = 80
     to_port     = 80
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port   = 443
+    to_port     = 443
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
@@ -36,11 +50,20 @@ resource "aws_instance" "ncr_instance" {
 
   user_data = <<-EOF
               #!/bin/bash
-              apt-get update
-              apt-get install -y apache2
-              systemctl start apache2
-              systemctl enable apache2
-              echo '<html><body><h1>Accessible web page</h1></body></html>' > /var/www/html/index.html
+              # Update the package repository
+              apt-get update -y
+              # Install required packages
+              apt-get install -y wget git
+              # Create the directory for local binaries if it doesn't exist
+              mkdir -p ~/.local/bin
+              # Download the binary
+              wget https://github.com/forkbombeu/ncr/releases/latest/download/ncr -O ~/.local/bin/ncr && chmod +x ~/.local/bin/ncr
+              # Add ~/.local/bin to PATH
+              export PATH=$PATH:~/.local/bin
+              # Clone the repository
+              git clone https://github.com/forkbombeu/ncr
+              # Run the server with the example folder
+              ncr -p 8080 -z ./ncr/tests/fixtures --public-directory ./ncr/public &
               EOF
 
   tags = {
