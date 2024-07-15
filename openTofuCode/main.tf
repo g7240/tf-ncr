@@ -1,10 +1,10 @@
 provider "aws" {
-  region = "eu-west-3"
+  region = var.region
 }
 
 # Create an S3 bucket
 resource "aws_s3_bucket" "example_bucket" {
-  bucket = "example-bucket-fjjdxq3o90p"
+  bucket = var.bucket_name
   acl    = "private"
 }
 
@@ -30,8 +30,8 @@ resource "aws_security_group" "ncr_sg" {
 
 # Create an EC2 instance to run the NCR service
 resource "aws_instance" "ncr_instance" {
-  ami           = "ami-0314c062c813a4aa0" # Choose AMI that fits your needs
-  instance_type = "t2.micro"
+  ami           = var.ami
+  instance_type = var.instance_type
   security_groups = [aws_security_group.ncr_sg.name]
 
   user_data = <<-EOF
@@ -40,7 +40,7 @@ resource "aws_instance" "ncr_instance" {
               apt-get install -y apache2
               systemctl start apache2
               systemctl enable apache2
-              echo '<html><body><h1>NCR Service</h1></body></html>' > /var/www/html/index.html
+              echo '<html><body><h1>Accessible web page</h1></body></html>' > /var/www/html/index.html
               EOF
 
   tags = {
