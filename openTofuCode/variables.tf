@@ -20,3 +20,8 @@ variable "bucket_name"{
     type = string
     default = "example-bucket-fjjdxq3o90p"
 }
+
+variable "public_key_path" {
+  description = "Path to the public key file"
+  type        = string
+}
