@@ -44,5 +44,13 @@ Ater some minutes, once infrustructure is fully deployed, you can:
 2. **Visualize the ncr service documentation web page via http**
 
    Write in your browser the url http://assignedIP:8080/docs or http://domainNaim:8080/
-Note: you can finde the assignedIP or the domainNaim to witch the IP is associated in 
-your aws ec2 instances page
+
+Note: you can find the assignedIP or the domainNaim to witch the IP is associated in your aws ec2 instances page or in output variables after "terraform apply" comand
+
+## How to stop deployment
+   ```sh
+   cd openTofuCode/
+   tofu destroy
+   ```
+
+Notice: Errors may occure if configuration is changed and applyed whitout before destroying. If problems occure try destroy before init and apply.

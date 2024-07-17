@@ -25,3 +25,8 @@ variable "public_key_path" {
   description = "Path to the public key file"
   type        = string
 }
+
+variable "user_data" {
+  description = "Path to the ecd configuration shell script file"
+  type        = string
+}
