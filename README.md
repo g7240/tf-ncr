@@ -39,7 +39,7 @@ The command writes the files:  _~/.aws/credentials_  and  _~/.aws/config_
 
 ## Getting Started
 
-1. **Clone the repository**
+1. **Clone this repository**
 
    ```sh
    git clone https://github.com/ForkbombEu/tf-ncr.git
@@ -47,7 +47,7 @@ The command writes the files:  _~/.aws/credentials_  and  _~/.aws/config_
    
 2. **Create ssh key to connect to the ec2 instance**
    ```sh
-   ssh-keygen -t rsa -b 2048 -C "noOwnerName" -f ./testRsaKey
+   ssh-keygen -t ed25519 -C "noOwnerName" -f ./testRsaKey
    chmod 700 ./testRsaKey
 
 3. **Deploy infrastructure on aws**
