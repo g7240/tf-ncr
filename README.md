@@ -42,7 +42,7 @@ The command writes the files:  _~/.aws/credentials_  and  _~/.aws/config_
 1. **Clone this repository**
 
    ```sh
-   git clone https://github.com/ForkbombEu/tf-ncr.git
+   git clone https://github.com/g7240/tf-ncr.git
    cd tf-ncr
    
 2. **Create ssh key to connect to the ec2 instance**
