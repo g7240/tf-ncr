@@ -47,7 +47,7 @@ The command writes the files:  _~/.aws/credentials_  and  _~/.aws/config_
    
 2. **Create ssh key to connect to the ec2 instance**
    ```sh
-   ssh-keygen -t ed25519 -C "noOwnerName" -f ./testRsaKey
+   ssh-keygen -t ed25519 -C "noOwnerName" -f ./testED25519Key
    chmod 700 ./testRsaKey
 
 3. **Deploy infrastructure on aws**
