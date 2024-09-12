@@ -66,7 +66,7 @@ Ater some minutes, once infrustructure is fully deployed, you can:
    Navigate to the folder tf-ncr/ and use ssh
     ```sh
     cd ..
-    ssh -i ./testRsaKey admin@assignedIP
+    ssh -i ./testED25519Key admin@assignedIP
     ```
 
 2. **Visualize the ncr service documentation web page via http**
